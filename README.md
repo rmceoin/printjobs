@@ -2,11 +2,13 @@
 
 # Commands to run
 
-`npm install -g typescript`
-`ng new fireang`
-`npm install angularfire2 firebase --save`
-`npm install promise-polyfill --save-exact`
-`ng serve`
+```
+npm install -g typescript
+ng new fireang
+npm install angularfire2 firebase --save
+npm install promise-polyfill --save-exact
+ng serve
+```
 
 ## Checking Typescript
 
@@ -17,6 +19,16 @@ Check version of Typescript with `tsc -v`.  Currently using 2.3.4.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 Uses [AngularFire](https://github.com/angular/angularfire2).
+
+## Setup Firebase
+
+1. Go to the [Firebase Console](https://console.firebase.google.com/)
+2. Create new project
+3. Setup Sign-In Method
+4. Enable Google -> Save
+3. Copy `src/app/firebaseconfig.ts-template` to `src/app/firebaseconfig.ts`
+4. In the Firebase console for the project, go to Authentication -> Web Setup
+5. Copy keys to `src/app/firebaseconfig.ts`
 
 ## Development server
 
