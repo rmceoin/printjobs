@@ -21,15 +21,6 @@ import { JobDetailComponent } from './jobdetail.component';
 import { PageNotFoundComponent } from './pagenotfound.component';
 import { firebaseConfig } from './firebaseconfig';
 
-/* export const firebaseConfig = {
-    apiKey: "AIzaSyCefjAdbXLt4Jpkxg6TTgpH41MrEQVLRvU",
-    authDomain: "fire-ang-198fc.firebaseapp.com",
-    databaseURL: "https://fire-ang-198fc.firebaseio.com",
-    projectId: "fire-ang-198fc",
-    storageBucket: "fire-ang-198fc.appspot.com",
-    messagingSenderId: "545464392390"
-}; */
-
 @NgModule({
   declarations: [
     AppComponent,
