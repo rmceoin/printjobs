@@ -1,0 +1,10 @@
+
+<h2 *ngIf="(user | async)?.uid">Job List</h2>
+
+<div class="row columns" *ngIf="(user | async)?.uid">
+
+  <button (click)="NewJob()">New</button>
+  <div id="details-container">
+      <p *ngFor="let item of items | async" (click)="onSelect(item)"><img src="../assets/images/pin.svg">{{item.jobid}}</p>
+  </div>
+</div>

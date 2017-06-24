@@ -1,0 +1,14 @@
+
+//
+// Copy this file to firebaseconfig.ts
+// In the Firebase console, go to Authentication -> Web Setup and copy & paste to here
+//
+export const firebaseConfig = {
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: ""
+};
+

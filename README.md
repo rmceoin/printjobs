@@ -1,6 +1,22 @@
 # Fireang
 
+# Commands to run
+
+`npm install -g typescript`
+`ng new fireang`
+`npm install angularfire2 firebase --save`
+`npm install promise-polyfill --save-exact`
+`ng serve`
+
+## Checking Typescript
+
+Check version of Typescript with `tsc -v`.  Currently using 2.3.4.
+
+## Other notes
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+
+Uses [AngularFire](https://github.com/angular/angularfire2).
 
 ## Development server
 

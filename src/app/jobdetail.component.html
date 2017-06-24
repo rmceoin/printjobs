@@ -1,0 +1,25 @@
+<h1>
+  {{title}}
+</h1>
+
+<div class="row columns">
+
+JobID:
+  <input type="text" *ngIf="(item | async)" id="jobid" placeholder="Job ID" [(ngModel)]="values.jobid" />
+Entry Date:
+  <input type="text" *ngIf="(item | async)" id="entrydate" placeholder="Entry Date" [(ngModel)]="values.entrydate" />
+Job Name:
+  <input type="text" *ngIf="(item | async)" id="jobname" placeholder="Date" [(ngModel)]="values.jobname" />
+Notes:
+  <input type="text" *ngIf="(item | async)" id="notes" placeholder="Notes" [(ngModel)]="values.notes" />
+Date Promised:
+  <input type="text" *ngIf="(item | async)" id="datepromised" placeholder="Date Promised" [(ngModel)]="values.datepromised" />
+Completed Date:
+  <input type="text" *ngIf="(item | async)" id="completeddate" placeholder="Completed Date" [(ngModel)]="values.completeddate" />
+Office Copies:
+  <input type="text" *ngIf="(item | async)" id="officecopies" placeholder="Office Copies" [(ngModel)]="values.officecopies" />
+Bindery:
+  <input type="checkbox" *ngIf="(item | async)" id="bindery" [(ngModel)]="values.bindery" />
+
+   <button (click)="Save()">Save</button>
+</div>
