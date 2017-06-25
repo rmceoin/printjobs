@@ -50,12 +50,15 @@ export class JobDetailComponent {
       this.values.completeddate = '';
       this.values.officecopies = '';
       this.values.bindery = false;
+      this.values.prepressfilesduein = '';
+      this.values.customerproofs = false;
+      this.values.pressproofs = false;
+      this.values.specialinstructions = '';
     }
   }
 
   Save() {
-    if (this.id == 'new') {
-      this.items.push({
+    var values = {
         jobid: this.values.jobid,
         entrydate: this.values.entrydate,
         jobname: this.values.jobname,
@@ -64,19 +67,16 @@ export class JobDetailComponent {
         completeddate: this.values.completeddate,
         officecopies: this.values.officecopies,
         bindery: this.values.bindery,
+        prepressfilesduein: this.values.prepressfilesduein,
+        customerproofs: this.values.customerproofs,
+        pressproofs: this.values.pressproofs,
+        specialinstructions: this.values.specialinstructions,
         modifiedBy: this.afAuth.auth.currentUser.email
-      });
+      };
+    if (this.id == 'new') {
+      this.items.push(values);
     } else {
-      this.item.update({
-        jobid: this.values.jobid,
-        entrydate: this.values.entrydate,
-        jobname: this.values.jobname,
-        notes: this.values.notes,
-        datepromised: this.values.datepromised,
-        completeddate: this.values.completeddate,
-        officecopies: this.values.officecopies,
-        bindery: this.values.bindery,
-      });
+      this.item.update(values);
     }
     this.router.navigate(['/jobs']);
   }

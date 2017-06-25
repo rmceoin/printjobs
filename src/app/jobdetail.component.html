@@ -2,43 +2,66 @@
   {{title}}
 </h1>
 
-<div class="row columns">
+<div class="row columns" *ngIf="(item | async)">
 
-<md-input-container *ngIf="(item | async)" >
-  <input mdInput id="jobid" placeholder="Job ID" [(ngModel)]="values.jobid" >
-</md-input-container>  
+  <md-input-container>
+    <input type="number" mdInput id="jobid" placeholder="Job ID" [(ngModel)]="values.jobid" >
+  </md-input-container>  
 
-<md-input-container *ngIf="(item | async)">
-  <input mdInput [mdDatepicker]="entrydatepicker" id="entrydate" placeholder="Entry Date" [(ngModel)]="values.entrydate" />
-  <button mdSuffix [mdDatepickerToggle]="entrydatepicker"></button>
-</md-input-container>
-<md-datepicker #entrydatepicker></md-datepicker>
+  <md-input-container *ngIf="(item | async)">
+    <input mdInput [mdDatepicker]="entrydatepicker" id="entrydate" placeholder="Entry Date" [(ngModel)]="values.entrydate" />
+    <button mdSuffix [mdDatepickerToggle]="entrydatepicker"></button>
+  </md-input-container>
+  <md-datepicker #entrydatepicker></md-datepicker>
 
-<md-input-container *ngIf="(item | async)" >
-  <input mdInput id="jobname" placeholder="Job Name" [(ngModel)]="values.jobname" />
-</md-input-container>  
+  <md-input-container *ngIf="(item | async)" >
+    <input mdInput id="jobname" placeholder="Job Name" [(ngModel)]="values.jobname" />
+  </md-input-container>  
 
-<md-input-container *ngIf="(item | async)" >
-  <input mdInput id="notes" placeholder="Notes" [(ngModel)]="values.notes" />
-</md-input-container>  
+  <md-input-container >
+    <textarea mdInput id="notes" placeholder="Notes" [(ngModel)]="values.notes" >
+    </textarea>
+  </md-input-container>  
 
-<md-input-container *ngIf="(item | async)">
-  <input mdInput [mdDatepicker]="datepromisedpicker" id="datepromised" placeholder="Date Promised" [(ngModel)]="values.datepromised" />
-  <button mdSuffix [mdDatepickerToggle]="datepromisedpicker"></button>
-</md-input-container>
-<md-datepicker #datepromisedpicker></md-datepicker>
+  <md-input-container *ngIf="(item | async)">
+    <input mdInput [mdDatepicker]="datepromisedpicker" id="datepromised" placeholder="Date Promised" [(ngModel)]="values.datepromised" />
+    <button mdSuffix [mdDatepickerToggle]="datepromisedpicker"></button>
+  </md-input-container>
+  <md-datepicker #datepromisedpicker></md-datepicker>
 
-<md-input-container *ngIf="(item | async)">
-  <input mdInput [mdDatepicker]="completeddatepicker" id="completeddate" placeholder="Completed Date" [(ngModel)]="values.completeddate" />
-  <button mdSuffix [mdDatepickerToggle]="completeddatepicker"></button>
-</md-input-container>
-<md-datepicker #completeddatepicker></md-datepicker>
+  <md-input-container *ngIf="(item | async)">
+    <input mdInput [mdDatepicker]="completeddatepicker" id="completeddate" placeholder="Completed Date" [(ngModel)]="values.completeddate" />
+    <button mdSuffix [mdDatepickerToggle]="completeddatepicker"></button>
+  </md-input-container>
+  <md-datepicker #completeddatepicker></md-datepicker>
 
-<md-input-container *ngIf="(item | async)" >
-  <input mdInput id="officecopies" placeholder="Office Copies" [(ngModel)]="values.officecopies" />
-</md-input-container>  
+  <md-input-container *ngIf="(item | async)" >
+    <input type="number" mdInput id="officecopies" placeholder="Office Copies" [(ngModel)]="values.officecopies" />
+  </md-input-container>  
 
-<md-checkbox *ngIf="(item | async)" class="example-margin" [(ngModel)]="values.bindery">Bindery</md-checkbox>
+  <md-checkbox *ngIf="(item | async)" class="example-margin" [(ngModel)]="values.bindery">Bindery</md-checkbox>
 
-   <button md-raised-button (click)="Save()">Save</button>
+  <md-card *ngIf="(item | async)">
+    <p>Pre Press
+    <md-input-container>
+      <input mdInput [mdDatepicker]="prepressfilesdueinpicker" id="prepressfilesduein"
+        placeholder="Files Due In" [(ngModel)]="values.prepressfilesduein" />
+      <button mdSuffix [mdDatepickerToggle]="prepressfilesdueinpicker"></button>
+    </md-input-container>
+    <md-datepicker #prepressfilesdueinpicker></md-datepicker>
+
+    <md-checkbox [(ngModel)]="values.customerproofs">Customer Proofs</md-checkbox>
+    <md-checkbox [(ngModel)]="values.pressproofs">Press Proofs</md-checkbox>
+    </p>
+
+    <md-input-container >
+      <textarea mdInput id="specialinstructions" placeholder="Special Instructions" [(ngModel)]="values.specialinstructions" >
+      </textarea>
+    </md-input-container>  
+
+  </md-card>
+
+
+
+    <button md-raised-button (click)="Save()">Save</button>
 </div>

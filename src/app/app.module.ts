@@ -19,6 +19,7 @@ import { MdSidenavModule, MdSidenavToggleResult, MdSidenav, MdSidenavContainer }
 import { MdDatepickerModule, MdNativeDateModule } from '@angular/material';
 import { MdCheckboxModule } from '@angular/material';
 import { MdButtonModule } from '@angular/material';
+import { MdCardModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
@@ -55,6 +56,7 @@ import { PageNotFoundComponent } from './pagenotfound.component';
     MdNativeDateModule,
     MdCheckboxModule,
     MdButtonModule,
+    MdCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
