@@ -4,9 +4,13 @@
 
 ```
 npm install -g typescript
-ng new fireang
+ng new printjobs
+cd printjobs
 npm install angularfire2 firebase --save
 npm install promise-polyfill --save-exact
+npm install @angular/material --save
+npm install --save @angular/animations
+npm install --save hammerjs
 ng serve
 ```
 

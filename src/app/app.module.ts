@@ -1,4 +1,5 @@
 //
+// Some inspiration from:
 // https://coursetro.com/posts/code/54/Angular-4-Firebase-Tutorial:-Make-a-Simple-Angular-4-App
 //
 
@@ -11,15 +12,22 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { MaterialModule } from "@angular/material";
+import { MdToolbarModule } from "@angular/material";
+import { MdMenuModule } from '@angular/material';
+import { MdSidenavModule, MdSidenavToggleResult, MdSidenav, MdSidenavContainer } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import 'hammerjs';
+
 import * as firebase from 'firebase/app';
-import {Observable} from 'rxjs/Observable';
+import { firebaseConfig } from './firebaseconfig';
+import { Observable } from 'rxjs/Observable';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { JobListComponent } from './joblist.component';
 import { JobDetailComponent } from './jobdetail.component';
 import { PageNotFoundComponent } from './pagenotfound.component';
-import { firebaseConfig } from './firebaseconfig';
 
 @NgModule({
   declarations: [
@@ -35,7 +43,12 @@ import { firebaseConfig } from './firebaseconfig';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule,
+    BrowserAnimationsModule,
+    MdToolbarModule,
+    MdMenuModule,
+    MdSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 
+//import {MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
+
 import { JobDetailComponent } from './jobdetail.component';
 
 import * as firebase from 'firebase/app';
