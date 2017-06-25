@@ -22,8 +22,9 @@ Check version of Typescript with `tsc -v`.  Currently using 2.3.4.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
-Uses [AngularFire](https://github.com/angular/angularfire2).
-[Angular Material](https://material.angular.io/)
+Uses::
+- [AngularFire](https://github.com/angular/angularfire2).
+- [Angular Material](https://material.angular.io/)
 
 ## Setup Firebase
 
