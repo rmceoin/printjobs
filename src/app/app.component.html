@@ -1,33 +1,32 @@
 <md-sidenav-container>
 
   <md-sidenav #sidenav mode="side" class="app-sidenav" opened="true">
-    <nav *ngIf="(user | async)?.uid">
-      <a routerLink="/jobs" routerLinkActive="active">Jobs</a>
-    </nav>
-    <div class="row columns">
-      <button (click)="login()" *ngIf="!(user | async)?.uid">Login</button>
-      <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
 
-    </div>
+    <md-nav-list >
+      <a *ngIf="(user | async)?.uid" md-list-item routerLink="/jobs" routerLinkActive="active">Jobs</a>
+      <a md-list-item (click)="login()" *ngIf="!(user | async)?.uid">Login</a>
+      <a md-list-item (click)="logout()" *ngIf="(user | async)?.uid">Logout</a>
+    </md-nav-list>
+
   </md-sidenav>
 
-<md-toolbar color="primary">
-  <button class="app-icon-button" (click)="sidenav.toggle()">
-      <i class="material-icons app-toolbar-menu">menu</i>
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+        <i class="material-icons app-toolbar-menu">menu</i>
     </button>
-  <span>{{title}}</span>
-  <span class="app-toolbar-filler"></span>
-<button md-icon-button [mdMenuTriggerFor]="appMenu">
-   <md-icon>more_vert</md-icon>
-</button>
-</md-toolbar>
+    <span>{{title}}</span>
+    <span class="app-toolbar-filler"></span>
+    <button md-icon-button [mdMenuTriggerFor]="appMenu">
+      <md-icon>more_vert</md-icon>
+    </button>
+  </md-toolbar>
 
-<md-menu #appMenu="mdMenu">
-  <button md-menu-item> Settings </button>
-  <button md-menu-item> Help </button>
-</md-menu>
-
+  <md-menu #appMenu="mdMenu">
+    <button md-menu-item> Settings </button>
+    <button md-menu-item> Help </button>
+  </md-menu>
 
   <router-outlet></router-outlet>
+
 </md-sidenav-container>
 
