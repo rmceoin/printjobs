@@ -1,0 +1,12 @@
+<h1>
+  {{title}}
+</h1>
+
+<div class="row columns" *ngIf="(item | async)">
+
+  <md-input-container  >
+    <input mdInput id="formattypename" placeholder="Format Type Name" [(ngModel)]="values.formattypename" />
+  </md-input-container>  
+
+  <button md-raised-button (click)="Save()">Save</button>
+</div>

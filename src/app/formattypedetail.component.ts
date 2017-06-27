@@ -9,11 +9,11 @@ import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './jobdetail.component.html',
+  templateUrl: './formattypedetail.component.html',
   styleUrls: ['./detail.component.css']
 })
-export class JobDetailComponent {
-  title = 'Job Detail';
+export class FormatTypeDetailComponent {
+  title = 'Format Type Detail';
 
   user: Observable<firebase.User>;
   id: string = '';
@@ -30,47 +30,25 @@ export class JobDetailComponent {
     this.id = this.route.snapshot.params['id'];
     this.user = this.afAuth.authState;
     if (this.id != "new") {
-      this.item = af.object('/jobs/' + this.id, { preserveSnapshot: true });
+      this.item = af.object('/formattypes/' + this.id, { preserveSnapshot: true });
       this.item.subscribe(snapshot => {
         this.values = snapshot.val();
       });
     } else {
-      this.item = af.object('/jobs');
-      this.items = af.list('/jobs', {
+      this.item = af.object('/formattypes');
+      this.items = af.list('/formattypes', {
         query: {
           limitToLast: 1
         }
       });
       this.values = {};
-      this.values.jobid = '';
-      this.values.entrydate = '';
-      this.values.jobname = '';
-      this.values.notes = '';
-      this.values.datepromised = '';
-      this.values.completeddate = '';
-      this.values.officecopies = '';
-      this.values.bindery = false;
-      this.values.prepressfilesduein = '';
-      this.values.customerproofs = false;
-      this.values.pressproofs = false;
-      this.values.specialinstructions = '';
+      this.values.formattypename = '';
     }
   }
 
   Save() {
     var values = {
-        jobid: this.values.jobid,
-        entrydate: this.values.entrydate,
-        jobname: this.values.jobname,
-        notes: this.values.notes,
-        datepromised: this.values.datepromised,
-        completeddate: this.values.completeddate,
-        officecopies: this.values.officecopies,
-        bindery: this.values.bindery,
-        prepressfilesduein: this.values.prepressfilesduein,
-        customerproofs: this.values.customerproofs,
-        pressproofs: this.values.pressproofs,
-        specialinstructions: this.values.specialinstructions,
+        formattypename: this.values.formattypename,
         modifiedBy: this.afAuth.auth.currentUser.email
       };
     if (this.id == 'new') {
@@ -78,6 +56,6 @@ export class JobDetailComponent {
     } else {
       this.item.update(values);
     }
-    this.router.navigate(['/jobs']);
+    this.router.navigate(['/formattypes']);
   }
 }

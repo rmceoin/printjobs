@@ -10,7 +10,7 @@ import * as firebase from 'firebase/app';
 @Component({
   selector: 'app-root',
   templateUrl: './joblist.component.html',
-  styleUrls: ['./joblist.component.css']
+  styleUrls: ['./list.component.css']
 })
 export class JobListComponent {
   title = 'Job List';

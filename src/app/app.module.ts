@@ -31,6 +31,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { JobListComponent } from './joblist.component';
 import { JobDetailComponent } from './jobdetail.component';
+import { FormatTypeDetailComponent } from './formattypedetail.component';
 import { PageNotFoundComponent } from './pagenotfound.component';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { PageNotFoundComponent } from './pagenotfound.component';
     AppComponent,
     JobDetailComponent,
     JobListComponent,
+    FormatTypeDetailComponent,
     PageNotFoundComponent
   ],
   imports: [
