@@ -22,6 +22,7 @@ import { MdButtonModule } from '@angular/material';
 import { MdCardModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import * as firebase from 'firebase/app';
 import { firebaseConfig } from './firebaseconfig';
@@ -59,6 +60,7 @@ import { PageNotFoundComponent } from './pagenotfound.component';
     MdCheckboxModule,
     MdButtonModule,
     MdCardModule,
+    NgxDatatableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

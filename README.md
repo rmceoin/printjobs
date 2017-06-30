@@ -11,6 +11,7 @@ npm install promise-polyfill --save-exact
 npm install @angular/material --save
 npm install --save @angular/animations
 npm install --save hammerjs
+npm install @swimlane/ngx-datatable --save
 ng serve
 ```
 
@@ -25,6 +26,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Uses::
 - [AngularFire](https://github.com/angular/angularfire2)
 - [Angular Material](https://material.angular.io/)
+- [ngx-datatable](https://github.com/swimlane/ngx-datatable) [documentation](https://swimlane.gitbooks.io/ngx-datatable/)
 
 ## Setup Firebase
 
