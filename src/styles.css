@@ -2,3 +2,13 @@
 body {
   margin: 0;
 }
+
+.datatable-header {
+  font-weight: bold;
+}
+.datatable-body-row:hover {
+    background-color: #eec;
+}
+.datatable-row-even {
+  background-color: #f5f5f5;
+}
