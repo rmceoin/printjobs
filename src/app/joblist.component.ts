@@ -45,6 +45,12 @@ export class JobListComponent {
     this.router.navigate(['/jobs', item.$key]);
   }
 
+  onActivate(event) {
+    if (event.type = "click") {
+//      console.log('row click: ' + event.row.jobid + " " + event.row.$key);
+      this.router.navigate(['/jobs/' + event.row.$key]);
+    }
+  }
   NewJob(): void {
     this.router.navigate(['/jobs/new']);
   }

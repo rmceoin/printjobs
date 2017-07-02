@@ -13,7 +13,8 @@
       class="material striped"
       [rows]="listitems"
       [columns]="columns"
-      [columnMode]="'force'">
+      [columnMode]="'force'"
+      (activate)="onActivate($event)">
     </ngx-datatable>
   </div>
 </div>
