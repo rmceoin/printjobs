@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -14,12 +14,11 @@ import * as firebase from 'firebase/app';
 })
 export class JobListComponent {
   title = 'Job List';
+  path = '/jobs';
 
   user: Observable<firebase.User>;
   items: FirebaseListObservable<any[]>;
   listitems: any[] = [];
-  msgVal: string = '';
-  selectedJob: string = '';
   columns = [
     { prop: 'jobid' },
     { prop: 'jobname' },
@@ -30,7 +29,7 @@ export class JobListComponent {
 
   constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, private router: Router) {
     this.user = this.afAuth.authState;
-    this.items = af.list('/jobs', {
+    this.items = af.list( this.path, {
       query: {
         limitToLast: 50
       }
@@ -40,18 +39,13 @@ export class JobListComponent {
     })
   }
 
-  onSelect(item): void {
-    this.selectedJob = item;
-    this.router.navigate(['/jobs', item.$key]);
-  }
-
   onActivate(event) {
     if (event.type = "click") {
-//      console.log('row click: ' + event.row.jobid + " " + event.row.$key);
-      this.router.navigate(['/jobs/' + event.row.$key]);
+      this.router.navigate([this.path + '/' + event.row.$key]);
     }
   }
-  NewJob(): void {
-    this.router.navigate(['/jobs/new']);
+
+  newItem(): void {
+    this.router.navigate([this.path + '/new']);
   }
 }

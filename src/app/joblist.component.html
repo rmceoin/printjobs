@@ -1,11 +1,11 @@
 
-<h2 *ngIf="(user | async)?.uid">Job List</h2>
+<h2 *ngIf="(user | async)?.uid">{{title}}</h2>
 
 <div class="row columns" *ngIf="(user | async)?.uid">
 
   <div>
     <md-card>
-      <button md-raised-button (click)="NewJob()">New</button>
+      <button md-raised-button (click)="newItem()">New</button>
     </md-card>
   </div>
   <div>
