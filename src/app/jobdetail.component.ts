@@ -59,19 +59,19 @@ export class JobDetailComponent {
 
   Save() {
     var values = {
-        jobid: this.values.jobid,
         entrydate: this.values.entrydate,
-        jobname: this.values.jobname,
-        notes: this.values.notes,
         datepromised: this.values.datepromised,
-        completeddate: this.values.completeddate,
-        officecopies: this.values.officecopies,
         bindery: this.values.bindery,
-        prepressfilesduein: this.values.prepressfilesduein,
+        completeddate: this.values.completeddate,
         customerproofs: this.values.customerproofs,
+        jobid: this.values.jobid,
+        jobname: this.values.jobname,
+        modifiedBy: this.afAuth.auth.currentUser.email,
+        notes: this.values.notes,
+        officecopies: this.values.officecopies,
+        prepressfilesduein: this.values.prepressfilesduein,
         pressproofs: this.values.pressproofs,
         specialinstructions: this.values.specialinstructions,
-        modifiedBy: this.afAuth.auth.currentUser.email
       };
     if (this.id == 'new') {
       this.items.push(values);
