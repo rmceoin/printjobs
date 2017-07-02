@@ -20,6 +20,8 @@ export class JobDetailComponent {
   items: FirebaseListObservable<any[]>;
   item: FirebaseObjectObservable<any>;
   values: any;
+  nextJobID: FirebaseObjectObservable<any>;
+  nextJobIDvalue: any;
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -54,26 +56,50 @@ export class JobDetailComponent {
       this.values.customerproofs = false;
       this.values.pressproofs = false;
       this.values.specialinstructions = '';
+
+      this.nextJobID = af.object('nextJobID', { preserveSnapshot: true });
+      this.nextJobID.subscribe(snapshot => {
+        this.nextJobIDvalue = snapshot.val();
+      });
     }
+  }
+
+  dateToString(dateinput) {
+    if (dateinput instanceof Date) {
+      return dateinput.toString();
+    }
+    return dateinput;
+  }
+
+  incrementJobid(){
+    return this.nextJobID.$ref.ref.transaction(id => {
+        if (id === null) {
+            return id = 1000;
+        } else {
+            return id + 1;
+        }
+    })
   }
 
   Save() {
     var values = {
-        entrydate: this.values.entrydate,
-        datepromised: this.values.datepromised,
+        entrydate: this.dateToString(this.values.entrydate),
+        datepromised: this.dateToString(this.values.datepromised),
         bindery: this.values.bindery,
-        completeddate: this.values.completeddate,
+        completeddate: this.dateToString(this.values.completeddate),
         customerproofs: this.values.customerproofs,
         jobid: this.values.jobid,
         jobname: this.values.jobname,
         modifiedBy: this.afAuth.auth.currentUser.email,
         notes: this.values.notes,
         officecopies: this.values.officecopies,
-        prepressfilesduein: this.values.prepressfilesduein,
+        prepressfilesduein: this.dateToString(this.values.prepressfilesduein),
         pressproofs: this.values.pressproofs,
         specialinstructions: this.values.specialinstructions,
       };
     if (this.id == 'new') {
+      this.incrementJobid();
+      values.jobid = this.nextJobIDvalue;
       this.items.push(values);
     } else {
       this.item.update(values);
