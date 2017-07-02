@@ -71,7 +71,7 @@ export class JobDetailComponent {
     return dateinput;
   }
 
-  incrementJobid(){
+  incrementNextJobID(){
     return this.nextJobID.$ref.ref.transaction(id => {
         if (id === null) {
             return id = 1000;
@@ -98,7 +98,7 @@ export class JobDetailComponent {
         specialinstructions: this.values.specialinstructions,
       };
     if (this.id == 'new') {
-      this.incrementJobid();
+      this.incrementNextJobID();
       values.jobid = this.nextJobIDvalue;
       this.items.push(values);
     } else {
