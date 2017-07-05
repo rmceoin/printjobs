@@ -32,6 +32,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { JobListComponent } from './joblist.component';
 import { JobDetailComponent } from './jobdetail.component';
+import { FormatTypeListComponent } from './formattypelist.component';
 import { FormatTypeDetailComponent } from './formattypedetail.component';
 import { PageNotFoundComponent } from './pagenotfound.component';
 
@@ -41,6 +42,7 @@ import { PageNotFoundComponent } from './pagenotfound.component';
     JobDetailComponent,
     JobListComponent,
     FormatTypeDetailComponent,
+    FormatTypeListComponent,
     PageNotFoundComponent
   ],
   imports: [
