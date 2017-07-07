@@ -20,6 +20,7 @@ import { MdDatepickerModule, MdNativeDateModule } from '@angular/material';
 import { MdCheckboxModule } from '@angular/material';
 import { MdButtonModule } from '@angular/material';
 import { MdCardModule } from '@angular/material';
+import { MdSelectModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -62,6 +63,7 @@ import { PageNotFoundComponent } from './pagenotfound.component';
     MdCheckboxModule,
     MdButtonModule,
     MdCardModule,
+    MdSelectModule,
     NgxDatatableModule,
   ],
   providers: [],

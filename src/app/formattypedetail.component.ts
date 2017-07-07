@@ -43,12 +43,14 @@ export class FormatTypeDetailComponent {
       });
       this.values = {};
       this.values.formattypename = '';
+      this.values.notes = '';
     }
   }
 
   Save() {
     var values = {
         formattypename: this.values.formattypename,
+        notes: this.values.notes,
         modifiedBy: this.afAuth.auth.currentUser.email
       };
     if (this.id == 'new') {

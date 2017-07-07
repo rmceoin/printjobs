@@ -59,9 +59,12 @@
       </textarea>
     </md-input-container>  
 
+    <div *ngIf="(formattypes | async)">
+      <md-select placeholder="Format" [(ngModel)]="values.format">
+        <md-option *ngFor="let formattype of listformattypes" [value]="formattype.formattypename">{{ formattype.formattypename }}</md-option>
+      </md-select>
+    </div>
   </md-card>
-
-
 
     <button md-raised-button (click)="Save()">Save</button>
 </div>
