@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#
+# Crude method of adding a new field to all jobs
+#
+
+if [ "$#" -ne 2 ]; then
+	echo "Missing project id and field"
+	echo "Use \`firebase list\` to get the project id"
+	firebase list
+	exit 1
+fi
+projectid=$1
+fieldname=$2
+
+jobs=$(firebase database:get /jobs | jq -c 'keys' | tr -d \[\]\" | sed 's/,/ /g')
+echo jobs=$jobs
+
+for j in `echo $jobs`; do
+	job="/jobs/$j"
+	firebase --confirm -P $projectid database:update $job <<< "{\"$fieldname\":\"\"}"
+done
+

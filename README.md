@@ -3,6 +3,7 @@
 # Commands to run
 
 ```
+npm install -g firebase-tools
 npm install -g typescript
 ng new printjobs
 cd printjobs
@@ -38,6 +39,12 @@ Uses::
 4. In the Firebase console for the project, go to Authentication -> Web Setup
 5. Copy keys to `src/app/firebaseconfig.ts`
 
+### Handy Firebase CLI
+
+```
+firebase list
+firebase -P print-jobs-id database:get /jobs
+```
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
