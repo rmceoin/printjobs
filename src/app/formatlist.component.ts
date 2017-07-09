@@ -7,13 +7,21 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import * as firebase from 'firebase/app';
 
+interface TitleMap {
+  [path: string]: string;
+}
+
+var titleMap: TitleMap = {
+  'formats': 'Format',
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
 export class FormatListComponent {
-  title = 'Format List';
+  title = '';
 
   user: Observable<firebase.User>;
   items: FirebaseListObservable<any[]>;
@@ -27,6 +35,7 @@ export class FormatListComponent {
   constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, private router: Router,
     private route: ActivatedRoute,
   ) {
+    this.title = titleMap[this.route.snapshot.url[0].toString()];
     this.path = '/' + this.route.snapshot.url[0];
     this.user = this.afAuth.authState;
     this.items = af.list( this.path, {
