@@ -33,8 +33,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { JobListComponent } from './joblist.component';
 import { JobDetailComponent } from './jobdetail.component';
-import { FormatTypeListComponent } from './formattypelist.component';
-import { FormatTypeDetailComponent } from './formattypedetail.component';
+import { FormatListComponent } from './formatlist.component';
+import { FormatDetailComponent } from './formatdetail.component';
 import { PageNotFoundComponent } from './pagenotfound.component';
 
 @NgModule({
@@ -42,8 +42,8 @@ import { PageNotFoundComponent } from './pagenotfound.component';
     AppComponent,
     JobDetailComponent,
     JobListComponent,
-    FormatTypeDetailComponent,
-    FormatTypeListComponent,
+    FormatDetailComponent,
+    FormatListComponent,
     PageNotFoundComponent
   ],
   imports: [

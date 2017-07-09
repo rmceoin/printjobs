@@ -5,7 +5,7 @@
 <div class="row columns" *ngIf="(item | async)">
 
   <md-input-container  >
-    <input mdInput id="name" placeholder="Name" [(ngModel)]="values.name" />
+    <input mdInput id="name" placeholder="Name" [(ngModel)]="values.name" required />
   </md-input-container>  
   <md-input-container  >
     <input mdInput id="notes" placeholder="Notes" [(ngModel)]="values.notes" />

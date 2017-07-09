@@ -12,7 +12,7 @@ import * as firebase from 'firebase/app';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class FormatTypeListComponent {
+export class FormatListComponent {
   title = 'Format List';
   path = '/formats';
 

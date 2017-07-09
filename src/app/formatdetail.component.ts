@@ -9,10 +9,10 @@ import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './formattypedetail.component.html',
+  templateUrl: './formatdetail.component.html',
   styleUrls: ['./detail.component.css']
 })
-export class FormatTypeDetailComponent {
+export class FormatDetailComponent {
   title = 'Format Detail';
   path = '/formats';
 
