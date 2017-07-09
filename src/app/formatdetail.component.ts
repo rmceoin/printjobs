@@ -7,14 +7,16 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import * as firebase from 'firebase/app';
 
+import { titleMap } from './titlemap';
+
 @Component({
   selector: 'app-root',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
 export class FormatDetailComponent {
-  title = 'Format Detail';
-  path = '/formats';
+  title = '';
+  path = '';
 
   user: Observable<firebase.User>;
   id: string = '';
@@ -28,6 +30,9 @@ export class FormatDetailComponent {
     private route: ActivatedRoute,
     private router: Router
     ) {
+    this.title = titleMap[this.route.snapshot.url[0].toString()];
+    this.path = '/' + this.route.snapshot.url[0];
+
     this.id = this.route.snapshot.params['id'];
     this.user = this.afAuth.authState;
     if (this.id != "new") {

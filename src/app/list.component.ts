@@ -7,20 +7,14 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import * as firebase from 'firebase/app';
 
-interface TitleMap {
-  [path: string]: string;
-}
-
-var titleMap: TitleMap = {
-  'formats': 'Format',
-}
+import { titleMap } from './titlemap';
 
 @Component({
   selector: 'app-root',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class FormatListComponent {
+export class ListComponent {
   title = '';
 
   user: Observable<firebase.User>;
