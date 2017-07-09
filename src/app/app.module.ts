@@ -34,7 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { JobListComponent } from './joblist.component';
 import { JobDetailComponent } from './jobdetail.component';
 import { ListComponent } from './list.component';
-import { FormatDetailComponent } from './formatdetail.component';
+import { DetailComponent } from './detail.component';
 import { PageNotFoundComponent } from './pagenotfound.component';
 
 @NgModule({
@@ -42,7 +42,7 @@ import { PageNotFoundComponent } from './pagenotfound.component';
     AppComponent,
     JobDetailComponent,
     JobListComponent,
-    FormatDetailComponent,
+    DetailComponent,
     ListComponent,
     PageNotFoundComponent
   ],

@@ -14,7 +14,7 @@ import { titleMap } from './titlemap';
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
-export class FormatDetailComponent {
+export class DetailComponent {
   title = '';
   path = '';
 
