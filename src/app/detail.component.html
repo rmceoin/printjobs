@@ -12,4 +12,7 @@
   </md-input-container>  
 
   <button md-raised-button (click)="Save()">Save</button>
+  <div *ngIf="(values.modifiedBy)">
+    Last modified by: {{values.modifiedBy}}
+  </div>
 </div>
