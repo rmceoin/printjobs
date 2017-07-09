@@ -29,7 +29,12 @@ export class ListComponent {
   constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, private router: Router,
     private route: ActivatedRoute,
   ) {
-    this.title = titleMap[this.route.snapshot.url[0].toString()];
+    var routePath = this.route.snapshot.url[0].toString();
+    if (routePath in titleMap) {
+      this.title = titleMap[this.route.snapshot.url[0].toString()];
+    } else {
+      this.title = "Missing title";
+    }
     this.path = '/' + this.route.snapshot.url[0];
     this.user = this.afAuth.authState;
     this.items = af.list( this.path, {
