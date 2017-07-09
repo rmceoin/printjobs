@@ -13,14 +13,14 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./list.component.css']
 })
 export class FormatTypeListComponent {
-  title = 'Format Type List';
-  path = '/formattypes';
+  title = 'Format List';
+  path = '/formats';
 
   user: Observable<firebase.User>;
   items: FirebaseListObservable<any[]>;
   listitems: any[] = [];
   columns = [
-    { prop: 'formattypename', name: 'Name' },
+    { name: 'Name' },
     { name: 'Notes' }
   ];
 

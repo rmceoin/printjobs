@@ -65,7 +65,7 @@ export class JobDetailComponent {
         this.nextJobIDvalue = snapshot.val();
       });
     }
-    this.formattypes = af.list('/formattypes', {
+    this.formattypes = af.list('/formats', {
       query: {
         limitToLast: 100
       }

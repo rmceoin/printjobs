@@ -13,7 +13,8 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./detail.component.css']
 })
 export class FormatTypeDetailComponent {
-  title = 'Format Type Detail';
+  title = 'Format Detail';
+  path = '/formats';
 
   user: Observable<firebase.User>;
   id: string = '';
@@ -30,26 +31,26 @@ export class FormatTypeDetailComponent {
     this.id = this.route.snapshot.params['id'];
     this.user = this.afAuth.authState;
     if (this.id != "new") {
-      this.item = af.object('/formattypes/' + this.id, { preserveSnapshot: true });
+      this.item = af.object(this.path + '/' + this.id, { preserveSnapshot: true });
       this.item.subscribe(snapshot => {
         this.values = snapshot.val();
       });
     } else {
-      this.item = af.object('/formattypes');
-      this.items = af.list('/formattypes', {
+      this.item = af.object(this.path);
+      this.items = af.list(this.path, {
         query: {
           limitToLast: 1
         }
       });
       this.values = {};
-      this.values.formattypename = '';
+      this.values.name = '';
       this.values.notes = '';
     }
   }
 
   Save() {
     var values = {
-        formattypename: this.values.formattypename,
+        name: this.values.name,
         notes: this.values.notes,
         modifiedBy: this.afAuth.auth.currentUser.email
       };
@@ -58,6 +59,6 @@ export class FormatTypeDetailComponent {
     } else {
       this.item.update(values);
     }
-    this.router.navigate(['/formattypes']);
+    this.router.navigate([this.path]);
   }
 }
