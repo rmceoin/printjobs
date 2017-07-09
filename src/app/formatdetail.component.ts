@@ -9,7 +9,7 @@ import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './formatdetail.component.html',
+  templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
 export class FormatDetailComponent {
