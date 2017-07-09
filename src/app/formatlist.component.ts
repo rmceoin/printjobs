@@ -14,7 +14,6 @@ import * as firebase from 'firebase/app';
 })
 export class FormatListComponent {
   title = 'Format List';
-  path = '/formats';
 
   user: Observable<firebase.User>;
   items: FirebaseListObservable<any[]>;
@@ -23,8 +22,12 @@ export class FormatListComponent {
     { name: 'Name' },
     { name: 'Notes' }
   ];
+  path = '';
 
-  constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, private router: Router) {
+  constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, private router: Router,
+    private route: ActivatedRoute,
+  ) {
+    this.path = '/' + this.route.snapshot.url[0];
     this.user = this.afAuth.authState;
     this.items = af.list( this.path, {
       query: {
