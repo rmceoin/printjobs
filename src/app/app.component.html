@@ -4,6 +4,7 @@
 
     <md-nav-list >
       <a *ngIf="(user | async)?.uid" md-list-item routerLink="/jobs" routerLinkActive="active">Jobs</a>
+      <a *ngIf="(user | async)?.uid" md-list-item routerLink="/presses" routerLinkActive="active">Presses</a>
       <a *ngIf="(user | async)?.uid" md-list-item routerLink="/formats" routerLinkActive="active">Formats</a>
       <a *ngIf="(user | async)?.uid" md-list-item routerLink="/bindingtypes" routerLinkActive="active">Binding Types</a>
       <a md-list-item (click)="login()" *ngIf="!(user | async)?.uid">Login</a>

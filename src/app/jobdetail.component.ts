@@ -24,6 +24,8 @@ export class JobDetailComponent {
   nextJobIDvalue: any;
   formattypes: FirebaseListObservable<any[]>;
   listformattypes: any[] = [];
+  presses: FirebaseListObservable<any[]>;
+  listpresses: any[] = [];
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -59,6 +61,7 @@ export class JobDetailComponent {
       this.values.pressproofs = false;
       this.values.specialinstructions = '';
       this.values.format = '';
+      this.values.press = '';
 
       this.nextJobID = af.object('nextJobID', { preserveSnapshot: true });
       this.nextJobID.subscribe(snapshot => {
@@ -66,12 +69,16 @@ export class JobDetailComponent {
       });
     }
     this.formattypes = af.list('/formats', {
-      query: {
-        limitToLast: 100
-      }
+      query: { limitToLast: 100 }
     });
     this.formattypes.subscribe(snapshot => {
       this.listformattypes = snapshot;
+    })
+    this.presses = af.list('/presses', {
+      query: { limitToLast: 100 }
+    });
+    this.presses.subscribe(snapshot => {
+      this.listpresses = snapshot;
     })
 
   }
@@ -109,6 +116,7 @@ export class JobDetailComponent {
         pressproofs: this.values.pressproofs,
         specialinstructions: this.values.specialinstructions,
         format: this.values.format,
+        press: this.values.press,
       };
     if (this.id == 'new') {
       this.incrementNextJobID();

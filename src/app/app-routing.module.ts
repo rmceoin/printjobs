@@ -14,6 +14,8 @@ const appRoutes: Routes = [
     { path: 'formats',     component: ListComponent },
     { path: 'bindingtypes/:id', component: DetailComponent },
     { path: 'bindingtypes',     component: ListComponent },
+    { path: 'presses/:id', component: DetailComponent },
+    { path: 'presses',     component: ListComponent },
     { path: '',   redirectTo: '/jobs', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];

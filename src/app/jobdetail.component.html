@@ -59,6 +59,12 @@
       </textarea>
     </md-input-container>  
 
+    <div *ngIf="(presses | async)">
+      <md-select placeholder="Press" [(ngModel)]="values.press">
+        <md-option *ngFor="let press of listpresses" [value]="press.name">{{ press.name }}</md-option>
+      </md-select>
+    </div>
+
     <div *ngIf="(formattypes | async)">
       <md-select placeholder="Format" [(ngModel)]="values.format">
         <md-option *ngFor="let formattype of listformattypes" [value]="formattype.name">{{ formattype.name }}</md-option>
