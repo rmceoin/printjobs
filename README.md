@@ -3,8 +3,9 @@
 # Commands to run
 
 ```
-npm install -g firebase-tools
-npm install -g typescript
+sudo npm install -g firebase-tools
+sudo npm install -g typescript
+sudo npm install -g @angular/cli
 ng new printjobs
 cd printjobs
 npm install angularfire2 firebase --save
@@ -18,7 +19,22 @@ ng serve
 
 ## Checking Typescript
 
-Check version of Typescript with `tsc -v`.  Currently using 2.3.4.
+Check version of Typescript with `tsc -v`.  Currently using 2.4.1.
+Use `sudo npm update -g typescript` to update as needed.
+
+## Angular Notes
+
+If updating Angular, you need to update both global and local.  Use `ng version` to 
+check the CLI.  If it complains about version mismatch, then update the `package.json`
+as needed.
+
+```
+    "@angular/cli": "1.2.0",
+```
+
+Then update the local with `npm install @angular/cli`.
+
+For greater detail, see [Updating Angular CLI](https://github.com/angular/angular-cli#updating-angular-cli)
 
 ## Other notes
 
