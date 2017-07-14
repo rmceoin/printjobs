@@ -4,15 +4,17 @@
 
 <div class="row columns" *ngIf="(item | async)">
 
+<form #detailForm="ngForm">
   <md-input-container  >
-    <input mdInput id="name" placeholder="Name" [(ngModel)]="values.name" required minlength="3" />
+    <input mdInput id="name" placeholder="Name" [(ngModel)]="values.name" name="name" required minlength="3" />
   </md-input-container>  
   <md-input-container  >
-    <input mdInput id="notes" placeholder="Notes" [(ngModel)]="values.notes" />
+    <input mdInput id="notes" placeholder="Notes" [(ngModel)]="values.notes" name="notes" />
   </md-input-container>  
 
-  <button md-raised-button (click)="Save()" [disabled]="(values.name.length < 3)">Save</button>
+  <button md-raised-button (click)="Save()" [disabled]="!detailForm.form.valid">Save</button>
   <div *ngIf="(values.modifiedBy)">
     Last modified by: {{values.modifiedBy}}
   </div>
+</form>
 </div>
