@@ -8,4 +8,5 @@ export var titleMap: TitleMap = {
   'formats': 'Format',
   'bindingtypes': 'Binding Type',
   'presses': 'Press',
+  'entry': 'Entry',
 }

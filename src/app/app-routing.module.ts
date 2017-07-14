@@ -10,6 +10,8 @@ import { PageNotFoundComponent } from './pagenotfound.component';
 const appRoutes: Routes = [
     { path: 'jobs/:id', component: JobDetailComponent },
     { path: 'jobs',     component: JobListComponent },
+    { path: 'entry/:id', component: DetailComponent },
+    { path: 'entry',     component: ListComponent },
     { path: 'formats/:id', component: DetailComponent },
     { path: 'formats',     component: ListComponent },
     { path: 'bindingtypes/:id', component: DetailComponent },
