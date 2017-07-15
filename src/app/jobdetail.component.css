@@ -1,5 +1,5 @@
 
-input.date, input#officecopies {
+input.date, input.number {
     width: 5em;
 }
 

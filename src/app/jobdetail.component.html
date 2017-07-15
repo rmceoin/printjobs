@@ -4,30 +4,90 @@
 
 <div *ngIf="(item | async)" id="details-container">
 
-  <md-input-container>
-    <input type="number" mdInput id="jobid" placeholder="Job ID" [(ngModel)]="values.jobid" disabled>
-  </md-input-container>  
+  <div>
+    <md-input-container>
+      <input type="number" mdInput id="jobid" placeholder="Job ID" [(ngModel)]="values.jobid" disabled class="number">
+    </md-input-container>  
 
-  <md-input-container *ngIf="(item | async)">
-    <input mdInput [mdDatepicker]="entrydatepicker" id="entrydate" placeholder="Entry Date" [(ngModel)]="values.entrydate" class="date"/>
-    <button mdSuffix [mdDatepickerToggle]="entrydatepicker"></button>
-  </md-input-container>
-  <md-datepicker #entrydatepicker></md-datepicker>
+    <md-input-container *ngIf="(item | async)">
+      <input mdInput [mdDatepicker]="entrydatepicker" id="entrydate" placeholder="Entry Date" [(ngModel)]="values.entrydate" class="date"/>
+      <button mdSuffix [mdDatepickerToggle]="entrydatepicker"></button>
+    </md-input-container>
+    <md-datepicker #entrydatepicker></md-datepicker>
 
-  <span *ngIf="(entry | async)">
-      <md-select placeholder="Entry Name" [(ngModel)]="values.entry">
-        <md-option *ngFor="let entry of listentry" [value]="entry.name">{{ entry.name }}</md-option>
+    <span *ngIf="(entry | async)">
+        <md-select placeholder="Entry Name" [(ngModel)]="values.entry">
+          <md-option *ngFor="let entry of listentry" [value]="entry.name">{{ entry.name }}</md-option>
+        </md-select>
+    </span>
+
+    <md-input-container *ngIf="(item | async)">
+      <input mdInput id="jobname" placeholder="Job Name" [(ngModel)]="values.jobname" flex="100" />
+    </md-input-container>  
+
+    <md-input-container >
+      <textarea mdInput id="notes" placeholder="Notes" [(ngModel)]="values.notes" >
+      </textarea>
+    </md-input-container>  
+
+    <md-input-container *ngIf="(item | async)">
+      <input mdInput [mdDatepicker]="pubdatepicker" id="pubdate" placeholder="Pub Date" [(ngModel)]="values.pubdate" class="date"/>
+      <button mdSuffix [mdDatepickerToggle]="pubdatepicker"></button>
+    </md-input-container>
+    <md-datepicker #pubdatepicker></md-datepicker>
+
+    <md-input-container>
+      <input type="number" mdInput id="pagecount" placeholder="Text Pgs" [(ngModel)]="values.pagecount" class="number" />
+    </md-input-container>  
+
+    <md-input-container>
+      <input type="number" mdInput id="coverpagecount" placeholder="Cover Pgs" [(ngModel)]="values.coverpagecount" class="number" />
+    </md-input-container>  
+
+    <span *ngIf="(formattypes | async)">
+      <md-select placeholder="Format" [(ngModel)]="values.format">
+        <md-option *ngFor="let formattype of listformattypes" [value]="formattype.name">{{ formattype.name }}</md-option>
       </md-select>
-  </span>
+    </span>
+  </div>
 
-  <md-input-container *ngIf="(item | async)">
-    <input mdInput id="jobname" placeholder="Job Name" [(ngModel)]="values.jobname" flex="100" />
-  </md-input-container>  
+  <div>
+    <md-input-container>
+      <input type="number" mdInput id="quantity" placeholder="Total Requested" [(ngModel)]="values.quantity" class="number" />
+    </md-input-container>  
 
-  <md-input-container >
-    <textarea mdInput id="notes" placeholder="Notes" [(ngModel)]="values.notes" >
-    </textarea>
-  </md-input-container>  
+    <md-input-container>
+      <input type="number" mdInput id="billablecopies" placeholder="Billable Copies" [(ngModel)]="values.billablecopies" class="number" />
+    </md-input-container>  
+
+    <md-input-container>
+      <input type="number" mdInput id="officecopies" placeholder="Office Copies" [(ngModel)]="values.officecopies" class="number" />
+    </md-input-container>  
+
+    <md-input-container>
+      <input type="number" mdInput id="samplesqty" placeholder="Samples" [(ngModel)]="values.samplesqty" class="number" />
+    </md-input-container>  
+
+    <md-checkbox [(ngModel)]="values.bluelines">Bluelines</md-checkbox>
+
+    <md-checkbox [(ngModel)]="values.bindery">Bindery</md-checkbox>
+
+    <span *ngIf="(bindingtypes | async)">
+        <md-select placeholder="Binding Type" [(ngModel)]="values.bindingtype">
+          <md-option *ngFor="let bindingtypes of listbindingtypes" [value]="bindingtypes.name">{{ bindingtypes.name }}</md-option>
+        </md-select>
+    </span>
+
+    <md-checkbox [(ngModel)]="values.uv">UV</md-checkbox>
+
+    <md-checkbox [(ngModel)]="values.inkjet">Inkjet</md-checkbox>
+
+    <md-input-container *ngIf="(item | async)">
+      <input mdInput [mdDatepicker]="mailfilesdueinpicker" id="mailfilesduein" placeholder="Mail Files Due In" [(ngModel)]="values.mailfilesduein" class="date" />
+      <button mdSuffix [mdDatepickerToggle]="mailfilesdueinpicker"></button>
+    </md-input-container>
+    <md-datepicker #mailfilesdueinpicker></md-datepicker>
+  </div>
 
   <md-input-container *ngIf="(item | async)">
     <input mdInput [mdDatepicker]="datepromisedpicker" id="datepromised" placeholder="Date Promised" [(ngModel)]="values.datepromised" class="date" />
@@ -41,11 +101,7 @@
   </md-input-container>
   <md-datepicker #completeddatepicker></md-datepicker>
 
-  <md-input-container *ngIf="(item | async)" >
-    <input type="number" mdInput id="officecopies" placeholder="Office Copies" [(ngModel)]="values.officecopies" />
-  </md-input-container>  
 
-  <md-checkbox *ngIf="(item | async)" class="example-margin" [(ngModel)]="values.bindery">Bindery</md-checkbox>
 
   <md-card *ngIf="(item | async)">
     <p>Pre Press
@@ -71,11 +127,6 @@
       </md-select>
     </span>
 
-    <span *ngIf="(formattypes | async)">
-      <md-select placeholder="Format" [(ngModel)]="values.format">
-        <md-option *ngFor="let formattype of listformattypes" [value]="formattype.name">{{ formattype.name }}</md-option>
-      </md-select>
-    </span>
   </md-card>
 
     <button md-raised-button (click)="Save()">Save</button>

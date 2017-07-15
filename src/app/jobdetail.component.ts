@@ -28,6 +28,8 @@ export class JobDetailComponent {
   listpresses: any[] = [];
   entry: FirebaseListObservable<any[]>;
   listentry: any[] = [];
+  bindingtypes: FirebaseListObservable<any[]>;
+  listbindingtypes: any[] = [];
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -54,10 +56,14 @@ export class JobDetailComponent {
       this.values.entrydate = '';
       this.values.jobname = '';
       this.values.notes = '';
+      this.values.pubdate = '';
       this.values.datepromised = '';
       this.values.completeddate = '';
       this.values.officecopies = '';
       this.values.bindery = false;
+      this.values.bluelines = false;
+      this.values.inkjet = false;
+      this.values.mailfilesduein = '';
       this.values.prepressfilesduein = '';
       this.values.customerproofs = false;
       this.values.pressproofs = false;
@@ -65,6 +71,13 @@ export class JobDetailComponent {
       this.values.format = '';
       this.values.press = '';
       this.values.entry = '';
+      this.values.pagecount = 0;
+      this.values.coverpagecount = 0;
+      this.values.quantity = 0;
+      this.values.billablecopies = 0;
+      this.values.samplesqty = 0;
+      this.values.bindingtype = '';
+      this.values.uv = false;
 
       this.nextJobID = af.object('nextJobID', { preserveSnapshot: true });
       this.nextJobID.subscribe(snapshot => {
@@ -83,11 +96,19 @@ export class JobDetailComponent {
     this.presses.subscribe(snapshot => {
       this.listpresses = snapshot;
     })
+
     this.entry = af.list('/entry', {
       query: { limitToLast: 100 }
     });
     this.entry.subscribe(snapshot => {
       this.listentry = snapshot;
+    })
+
+    this.bindingtypes = af.list('/bindingtypes', {
+      query: { limitToLast: 100 }
+    });
+    this.bindingtypes.subscribe(snapshot => {
+      this.listbindingtypes = snapshot;
     })
 
   }
@@ -113,20 +134,31 @@ export class JobDetailComponent {
     var values = {
         entrydate: this.dateToString(this.values.entrydate),
         datepromised: this.dateToString(this.values.datepromised),
+        billablecopies: this.values.billablecopies,
         bindery: this.values.bindery,
+        bindingtype: this.values.bindingtype,
+        bluelines: this.values.bluelines,
         completeddate: this.dateToString(this.values.completeddate),
+        coverpagecount: this.values.coverpagecount,
         customerproofs: this.values.customerproofs,
+        inkjet: this.values.inkjet,
         jobid: this.values.jobid,
         jobname: this.values.jobname,
+        mailfilesduein: this.dateToString(this.values.mailfilesduein),
         modifiedBy: this.afAuth.auth.currentUser.email,
         notes: this.values.notes,
         officecopies: this.values.officecopies,
+        pagecount: this.values.pagecount,
         prepressfilesduein: this.dateToString(this.values.prepressfilesduein),
         pressproofs: this.values.pressproofs,
+        pubdate: this.dateToString(this.values.pubdate),
+        samplesqty: this.values.samplesqty,
         specialinstructions: this.values.specialinstructions,
         format: this.values.format,
         press: this.values.press,
         entry: this.values.entry,
+        quantity: this.values.quantity,
+        uv: this.values.uv,
       };
     if (this.id == 'new') {
       this.incrementNextJobID();
