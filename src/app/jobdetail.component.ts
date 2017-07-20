@@ -83,6 +83,7 @@ export class JobDetailComponent {
       this.values.samplesqty = 0;
       this.values.specialinstructions = '';
       this.values.textsigs = 0;
+      this.values.timepromised = '';
       this.values.sigs1 = 0;
       this.values.sigs2 = 0;
       this.values.sigs3 = 0;
@@ -178,6 +179,7 @@ export class JobDetailComponent {
         entry: this.values.entry,
         quantity: this.values.quantity,
         textsigs: this.values.textsigs,
+        timepromised: this.values.timepromised,
         sig1: this.values.sig1,
         sig2: this.values.sig2,
         sig3: this.values.sig3,

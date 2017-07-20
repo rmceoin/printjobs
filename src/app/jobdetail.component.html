@@ -22,8 +22,8 @@
     </span>
 
     <md-input-container *ngIf="(item | async)">
-      <input mdInput id="jobname" placeholder="Job Name" [(ngModel)]="values.jobname" flex="100" />
-    </md-input-container>  
+      <input mdInput id="jobname" placeholder="Job Name" [(ngModel)]="values.jobname" />
+    </md-input-container>
 
     <md-input-container >
       <textarea mdInput id="notes" placeholder="Notes" [(ngModel)]="values.notes" >
@@ -144,34 +144,34 @@
     </md-input-container>
     <md-datepicker #datepromisedpicker></md-datepicker>
 
-</div>
-
-
-  <md-input-container *ngIf="(item | async)">
-    <input mdInput [mdDatepicker]="completeddatepicker" id="completeddate" placeholder="Completed Date" [(ngModel)]="values.completeddate" class="date" />
-    <button mdSuffix [mdDatepickerToggle]="completeddatepicker"></button>
-  </md-input-container>
-  <md-datepicker #completeddatepicker></md-datepicker>
-
-
+    <md-input-container *ngIf="(item | async)">
+      <input mdInput id="timepromised" placeholder="Time Promised" [(ngModel)]="values.timepromised" />
+    </md-input-container>
+  </div>
 
   <md-card *ngIf="(item | async)">
-    <p>Pre Press
-    <md-input-container>
-      <input mdInput [mdDatepicker]="prepressfilesdueinpicker" id="prepressfilesduein"
-        placeholder="Files Due In" [(ngModel)]="values.prepressfilesduein" class="date"/>
-      <button mdSuffix [mdDatepickerToggle]="prepressfilesdueinpicker"></button>
-    </md-input-container>
-    <md-datepicker #prepressfilesdueinpicker></md-datepicker>
+    <md-card-title>Pre Press</md-card-title>
 
-    <md-checkbox [(ngModel)]="values.customerproofs">Customer Proofs</md-checkbox>
-    <md-checkbox [(ngModel)]="values.pressproofs">Press Proofs</md-checkbox>
-    </p>
+    <md-card-content>
+    <div>
+      <md-input-container>
+        <input mdInput [mdDatepicker]="prepressfilesdueinpicker" id="prepressfilesduein"
+          placeholder="Files Due In" [(ngModel)]="values.prepressfilesduein" class="date"/>
+        <button mdSuffix [mdDatepickerToggle]="prepressfilesdueinpicker"></button>
+      </md-input-container>
+      <md-datepicker #prepressfilesdueinpicker></md-datepicker>
 
-    <md-input-container >
-      <textarea mdInput id="specialinstructions" placeholder="Special Instructions" [(ngModel)]="values.specialinstructions" >
-      </textarea>
-    </md-input-container>  
+      <md-checkbox [(ngModel)]="values.customerproofs">Customer Proofs</md-checkbox>
+      <md-checkbox [(ngModel)]="values.pressproofs">Press Proofs</md-checkbox>
+    </div>
+
+    <div>
+      <md-input-container >
+        <textarea mdInput id="specialinstructions" placeholder="Special Instructions" [(ngModel)]="values.specialinstructions" >
+        </textarea>
+      </md-input-container>  
+    </div>
+    </md-card-content>
 
     <span *ngIf="(presses | async)">
       <md-select placeholder="Press" [(ngModel)]="values.press">
