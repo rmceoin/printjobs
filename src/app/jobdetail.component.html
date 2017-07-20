@@ -87,13 +87,65 @@
       <button mdSuffix [mdDatepickerToggle]="mailfilesdueinpicker"></button>
     </md-input-container>
     <md-datepicker #mailfilesdueinpicker></md-datepicker>
+
+    <md-checkbox [(ngModel)]="values.cuttingrequired">Cutting Req</md-checkbox>
+
+    <md-checkbox [(ngModel)]="values.foldingrequired">Outside Folding</md-checkbox>
+
+    <md-checkbox [(ngModel)]="values.inserting">Inserting</md-checkbox>
+
+    <md-checkbox [(ngModel)]="values.presscheck">Press Check</md-checkbox>
+
+    <md-input-container>
+      <input type="number" mdInput id="bindingpockets" placeholder="Binding Pockets" [(ngModel)]="values.bindingpockets" class="number" />
+    </md-input-container>  
   </div>
 
-  <md-input-container *ngIf="(item | async)">
-    <input mdInput [mdDatepicker]="datepromisedpicker" id="datepromised" placeholder="Date Promised" [(ngModel)]="values.datepromised" class="date" />
-    <button mdSuffix [mdDatepickerToggle]="datepromisedpicker"></button>
-  </md-input-container>
-  <md-datepicker #datepromisedpicker></md-datepicker>
+  <div>
+    <md-input-container>
+      <input type="number" mdInput id="textsigs" placeholder="Text Sigs" [(ngModel)]="values.textsigs" class="number" />
+    </md-input-container>
+
+    <md-input-container>
+      <input type="number" mdInput id="sig1" placeholder="Sig 1" [(ngModel)]="values.sig1" class="number" />
+    </md-input-container>
+
+    <md-input-container>
+      <input type="number" mdInput id="sig2" placeholder="Sig 2" [(ngModel)]="values.sig2" class="number" />
+    </md-input-container>
+
+    <md-input-container>
+      <input type="number" mdInput id="sig3" placeholder="Sig 3" [(ngModel)]="values.sig3" class="number" />
+    </md-input-container>
+
+    <md-input-container>
+      <input type="number" mdInput id="sig4" placeholder="Sig 4" [(ngModel)]="values.sig4" class="number" />
+    </md-input-container>
+
+    <md-input-container>
+      <input type="number" mdInput id="sig5" placeholder="Sig 5" [(ngModel)]="values.sig5" class="number" />
+    </md-input-container>
+
+    <md-input-container>
+      <input type="number" mdInput id="sig6" placeholder="Sig 6" [(ngModel)]="values.sig6" class="number" />
+    </md-input-container>
+
+    <md-input-container>
+      <input type="number" mdInput id="sig7" placeholder="Sig 7" [(ngModel)]="values.sig7" class="number" />
+    </md-input-container>
+
+    <md-input-container>
+      <input type="number" mdInput id="sig8" placeholder="Sig 8" [(ngModel)]="values.sig8" class="number" />
+    </md-input-container>
+
+    <md-input-container *ngIf="(item | async)">
+      <input mdInput [mdDatepicker]="datepromisedpicker" id="datepromised" placeholder="Date Promised" [(ngModel)]="values.datepromised" class="date" />
+      <button mdSuffix [mdDatepickerToggle]="datepromisedpicker"></button>
+    </md-input-container>
+    <md-datepicker #datepromisedpicker></md-datepicker>
+
+</div>
+
 
   <md-input-container *ngIf="(item | async)">
     <input mdInput [mdDatepicker]="completeddatepicker" id="completeddate" placeholder="Completed Date" [(ngModel)]="values.completeddate" class="date" />

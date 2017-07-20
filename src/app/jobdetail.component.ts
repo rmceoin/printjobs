@@ -52,31 +52,45 @@ export class JobDetailComponent {
         }
       });
       this.values = {};
-      this.values.jobid = '';
+      this.values.billablecopies = 0;
+      this.values.bindingpockets = '';
+      this.values.bindery = false;
+      this.values.bindingtype = '';
+      this.values.bluelines = false;
+      this.values.completeddate = '';
+      this.values.coverpagecount = 0;
+      this.values.cuttingrequired = false;
+      this.values.customerproofs = false;
+      this.values.datepromised = '';
       this.values.entrydate = '';
+      this.values.entry = '';
+      this.values.foldingrequired = false;
+      this.values.format = '';
+      this.values.inkjet = false;
+      this.values.inserting = false;
+      this.values.jobid = '';
       this.values.jobname = '';
       this.values.notes = '';
-      this.values.pubdate = '';
-      this.values.datepromised = '';
-      this.values.completeddate = '';
       this.values.officecopies = '';
-      this.values.bindery = false;
-      this.values.bluelines = false;
-      this.values.inkjet = false;
       this.values.mailfilesduein = '';
-      this.values.prepressfilesduein = '';
-      this.values.customerproofs = false;
-      this.values.pressproofs = false;
-      this.values.specialinstructions = '';
-      this.values.format = '';
-      this.values.press = '';
-      this.values.entry = '';
       this.values.pagecount = 0;
-      this.values.coverpagecount = 0;
+      this.values.prepressfilesduein = '';
+      this.values.presscheck = false;
+      this.values.pressproofs = false;
+      this.values.press = '';
+      this.values.pubdate = '';
       this.values.quantity = 0;
-      this.values.billablecopies = 0;
       this.values.samplesqty = 0;
-      this.values.bindingtype = '';
+      this.values.specialinstructions = '';
+      this.values.textsigs = 0;
+      this.values.sigs1 = 0;
+      this.values.sigs2 = 0;
+      this.values.sigs3 = 0;
+      this.values.sigs4 = 0;
+      this.values.sigs5 = 0;
+      this.values.sigs6 = 0;
+      this.values.sigs7 = 0;
+      this.values.sigs8 = 0;
       this.values.uv = false;
 
       this.nextJobID = af.object('nextJobID', { preserveSnapshot: true });
@@ -136,12 +150,16 @@ export class JobDetailComponent {
         datepromised: this.dateToString(this.values.datepromised),
         billablecopies: this.values.billablecopies,
         bindery: this.values.bindery,
+        bindingpockets: this.values.bindingpockets,
         bindingtype: this.values.bindingtype,
         bluelines: this.values.bluelines,
         completeddate: this.dateToString(this.values.completeddate),
         coverpagecount: this.values.coverpagecount,
         customerproofs: this.values.customerproofs,
+        cuttingrequired: this.values.cuttingrequired,
+        foldingrequired: this.values.foldingrequired,
         inkjet: this.values.inkjet,
+        inserting: this.values.inserting,
         jobid: this.values.jobid,
         jobname: this.values.jobname,
         mailfilesduein: this.dateToString(this.values.mailfilesduein),
@@ -150,6 +168,7 @@ export class JobDetailComponent {
         officecopies: this.values.officecopies,
         pagecount: this.values.pagecount,
         prepressfilesduein: this.dateToString(this.values.prepressfilesduein),
+        presscheck: this.values.presscheck,
         pressproofs: this.values.pressproofs,
         pubdate: this.dateToString(this.values.pubdate),
         samplesqty: this.values.samplesqty,
@@ -158,6 +177,15 @@ export class JobDetailComponent {
         press: this.values.press,
         entry: this.values.entry,
         quantity: this.values.quantity,
+        textsigs: this.values.textsigs,
+        sig1: this.values.sig1,
+        sig2: this.values.sig2,
+        sig3: this.values.sig3,
+        sig4: this.values.sig4,
+        sig5: this.values.sig5,
+        sig6: this.values.sig6,
+        sig7: this.values.sig7,
+        sig8: this.values.sig8,
         uv: this.values.uv,
       };
     if (this.id == 'new') {
