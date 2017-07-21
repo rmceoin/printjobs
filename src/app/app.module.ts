@@ -33,6 +33,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { JobListComponent } from './joblist.component';
 import { JobDetailComponent } from './jobdetail.component';
+import { JobNameListComponent } from './jobnamelist.component';
+import { JobNameDetailComponent } from './jobnamedetail.component';
 import { ListComponent } from './list.component';
 import { DetailComponent } from './detail.component';
 import { PageNotFoundComponent } from './pagenotfound.component';
@@ -42,6 +44,8 @@ import { PageNotFoundComponent } from './pagenotfound.component';
     AppComponent,
     JobDetailComponent,
     JobListComponent,
+    JobNameDetailComponent,
+    JobNameListComponent,
     DetailComponent,
     ListComponent,
     PageNotFoundComponent

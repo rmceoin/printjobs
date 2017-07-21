@@ -1,0 +1,20 @@
+
+<h1 *ngIf="(user | async)?.uid">{{title}} List</h1>
+
+<div class="row columns" *ngIf="(user | async)?.uid">
+
+  <div>
+    <md-card>
+      <button md-raised-button (click)="newItem()">New</button>
+    </md-card>
+  </div>
+  <div>
+    <ngx-datatable
+      class="material striped"
+      [rows]="listitems"
+      [columns]="columns"
+      [columnMode]="'force'"
+      (activate)="onActivate($event)">
+    </ngx-datatable>
+  </div>
+</div>
