@@ -21,6 +21,7 @@ import { MdCheckboxModule } from '@angular/material';
 import { MdButtonModule } from '@angular/material';
 import { MdCardModule } from '@angular/material';
 import { MdSelectModule } from '@angular/material';
+import { MdDialogModule, MdDialogRef } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
@@ -35,6 +36,7 @@ import { JobListComponent } from './joblist.component';
 import { JobDetailComponent } from './jobdetail.component';
 import { JobNameListComponent } from './jobnamelist.component';
 import { JobNameDetailComponent } from './jobnamedetail.component';
+import { JobNameDialogComponent } from './dialog/jobnamedialog.component';
 import { ListComponent } from './list.component';
 import { DetailComponent } from './detail.component';
 import { PageNotFoundComponent } from './pagenotfound.component';
@@ -46,6 +48,7 @@ import { PageNotFoundComponent } from './pagenotfound.component';
     JobListComponent,
     JobNameDetailComponent,
     JobNameListComponent,
+    JobNameDialogComponent,
     DetailComponent,
     ListComponent,
     PageNotFoundComponent
@@ -68,10 +71,13 @@ import { PageNotFoundComponent } from './pagenotfound.component';
     MdButtonModule,
     MdCardModule,
     MdSelectModule,
+    MdDialogModule,
+//    MdDialogRef,
     NgxDatatableModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ JobNameDialogComponent ]
 })
 export class AppModule { }
 

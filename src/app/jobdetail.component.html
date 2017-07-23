@@ -23,6 +23,7 @@
 
     <md-input-container *ngIf="(item | async)">
       <input mdInput id="jobname" placeholder="Job Name" [(ngModel)]="values.jobname" />
+      <button md-button (click)="openJobNameDialog()">Select</button>
     </md-input-container>
 
     <md-input-container >

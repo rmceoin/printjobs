@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { MdDialog, MdDialogRef } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import * as firebase from 'firebase/app';
+
+import { JobNameDialogComponent } from './dialog/jobnamedialog.component';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +38,8 @@ export class JobDetailComponent {
     public afAuth: AngularFireAuth,
     af: AngularFireDatabase,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public dialog: MdDialog
     ) {
     this.id = this.route.snapshot.params['id'];
     this.user = this.afAuth.authState;
@@ -126,6 +130,16 @@ export class JobDetailComponent {
       this.listbindingtypes = snapshot;
     })
 
+  }
+
+  openJobNameDialog() {
+
+    let dialogRef = this.dialog.open(JobNameDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if ((typeof result === "string") && (result.length>0)) {
+        this.values.jobname = result;
+      }
+    });
   }
 
   dateToString(dateinput) {

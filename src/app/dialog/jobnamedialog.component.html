@@ -1,0 +1,15 @@
+
+<h2 md-dialog-title *ngIf="(user | async)?.uid">Select Job Name</h2>
+
+<div class="row columns" *ngIf="(user | async)?.uid">
+
+  <div>
+    <ngx-datatable
+      class="material striped"
+      [rows]="listitems"
+      [columns]="columns"
+      [columnMode]="'force'"
+      (activate)="onActivate($event)">
+    </ngx-datatable>
+  </div>
+</div>
